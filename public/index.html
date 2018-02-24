@@ -6,13 +6,33 @@
     <title>Grocery Cloud</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="stylesheet" href="bower_components/components-font-awesome/css/fontawesome-all.min.css">
     <link rel="stylesheet" href="app/styles/css/main.css">
 
     <base href="/">
 </head>
 <body>
 
+    <nav>
+        <ul>
+            <li><a href="/">Grocery Cloud</a></li>
+        </ul>
+        <ul>
+            <li><a href="/shop">Shop All</a></li>
+            <li><a href="/cart"><i class="fas fa-shopping-cart"></i></a></li>
+        </ul>
+    </nav>
+
     <div ng-view></div>
+
+    <footer>
+        <p>&copy; Grocery Cloud 2018</p>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </footer>
 
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/angular/angular.min.js"></script>
@@ -21,5 +41,9 @@
 
     <script src="./app/scripts/app.js"></script>
     <script src="./app/scripts/controllers/HomeController.js"></script>
+    <script src="./app/scripts/controllers/ShopController.js"></script>
+    <script src="./app/scripts/controllers/CartController.js"></script>
+    <script src="./app/scripts/controllers/AboutController.js"></script>
+    <script src="./app/scripts/controllers/ContactController.js"></script>
 </body>
 </html>

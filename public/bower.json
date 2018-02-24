@@ -1,0 +1,23 @@
+{
+  "name": "public",
+  "homepage": "https://github.com/megame24/ALCwithMicrosoft-Capstone-project",
+  "authors": [
+    "Innocent Ngene <ngeneinnocent@gmail.com>"
+  ],
+  "description": "front end dependencies",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "angular": "^1.6.9",
+    "angular-route": "^1.6.9",
+    "angular-css": "^1.0.8"
+  }
+}

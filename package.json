@@ -1,0 +1,26 @@
+{
+  "name": "alc-capstone-project",
+  "version": "1.0.0",
+  "description": "Alc front end capstone project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/megame24/ALCwithMicrosoft-Capstone-project.git"
+  },
+  "author": "Innocent Ngene",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/megame24/ALCwithMicrosoft-Capstone-project/issues"
+  },
+  "homepage": "https://github.com/megame24/ALCwithMicrosoft-Capstone-project#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "morgan": "^1.9.0"
+  }
+}

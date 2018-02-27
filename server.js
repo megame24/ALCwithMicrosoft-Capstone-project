@@ -6,6 +6,7 @@ app.use(morgan('dev'));
 
 app.use(express.static('public'));
 app.use('/bower_components', express.static('public/bower_components'));
+app.use('/img', express.static('public/app/img'));
 
 app.get('*', function(req, res) {
     res.sendFile(__dirname + '/public/index.html');

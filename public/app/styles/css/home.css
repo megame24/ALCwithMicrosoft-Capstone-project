@@ -1,0 +1,16 @@
+.vissible {
+    display: block;
+}
+#carousel {
+    height: 310px;
+    position: relative;
+    width: 400px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+figure {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+}

@@ -1,9 +1,9 @@
-angular.module('app').controller('ShopController', ['dataService', ShopController]);
+angular.module('app').controller('ShopController', ['dataService', '$location', '$window', ShopController]);
 
-function ShopController(dataService) {
+function ShopController(dataService, $location, $window) {
     var shop = this;
+    shop.subcategory;
     shop.subcategoryLength;
-    shop.subcategory
     shop.data = [];
     shop.products = [];
     shop.updateProducts = function(subcategory) {
@@ -33,6 +33,10 @@ function ShopController(dataService) {
             'rating': 'rating'
         }
         shop.filter = sorts[myValue]; 
+    }
+
+    shop.redirect = function(name) {
+        $location.path('/product').search('name', name)
     }
 
     function getData(cb) {

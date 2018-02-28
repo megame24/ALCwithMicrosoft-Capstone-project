@@ -22,8 +22,11 @@
 
 <div ng-repeat="product in shop.products | orderBy: shop.filter">
     <div>
-        <p>{{product['imagelink']}}</p>
-        <p>{{product['name']}}</p>
+        <a href="#" ng-click="shop.redirect(product['name'])">
+            <!-- <img src="{{product['imagelink']}}" width="300px" height="300px"> -->
+            <p>{{product['imagelink']}}</p>
+        </a>
+        <a href="#" ng-click="shop.redirect(product['name'])">{{product['name']}}</a>
         <p>{{product['price']}}</p>
         <button>Add</button>
     </div>

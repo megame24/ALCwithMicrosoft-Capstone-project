@@ -1,1 +1,12 @@
-<h1>welcome</h1>
+<a href="#" ng-click="product.back()">Back</a>
+<p>{{product.name}}</p>
+<p>{{product.product['imagelink']}}</p>
+<p>Rating: {{product.product['rating']}}</p>
+<p>Stock: {{product.product['stock']}}</p>
+<p>${{product.product['price']}}</p>
+<p>{{product.product['description']}}</p>
+<div>
+    <label>Qty</label>
+    <input type="number" id="qty" value="1">
+</div>
+<button>Add</button>

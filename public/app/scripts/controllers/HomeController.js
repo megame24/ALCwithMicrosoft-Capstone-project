@@ -1,9 +1,8 @@
-angular.module('app').controller('HomeController', ['dataService', HomeController]);
+angular.module('app').controller('HomeController', ['dataService', '$scope', HomeController]);
 
-function HomeController(dataService) {
+function HomeController(dataService, $scope) {
     var home = this;
     home.products = [];
-    
     function getData(cb) {
         dataService.getData().then(function(result){
             cb(result);
@@ -13,7 +12,7 @@ function HomeController(dataService) {
     }
 
     getData(function(result){
-        dataService.homeProductData(result, home.products);
+        dataService.home.homeProductData(result, home.products);
     });
 
 }

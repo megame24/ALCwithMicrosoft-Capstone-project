@@ -1,1 +1,30 @@
-<h1>{{shop.welcome}}</h1>
+<p>showing <code>{{shop.products.length}}</code> of <code>{{shop.subcategoryLength}}</code> items in <strong>{{shop.subcategory['name']}}</strong></p>
+
+<div>In stock Only <input type="checkbox" ng-init='checkStatus=false' ng-model='shop.checkStatus' ng-click='shop.inStock(shop.checkStatus)'></div>
+<div>
+    <label>Sort by:</label>
+    <select ng-model="myValue" ng-change="shop.sort(myValue)" class="ng-not-empty">
+        <option value="">None</option>
+        <option value="alphabetical">Alphabetical</option>
+        <option value="price">Price</option>
+        <option value="rating">Rating</option>
+    </select>
+</div>
+
+<div ng-repeat="element in shop.data">
+    <h4 ng-model="clicked" ng-init="clicked=true" ng-click="clicked ? clicked=false: clicked=true">{{element['category']}}</h4>
+    <div class="sub-cats" ng-repeat="elem in element['subcategories']" ng-hide="clicked">
+        <p ng-click="shop.updateProducts(elem)">{{elem['name']}}</p>
+    </div>
+</div>
+
+&nbsp; &nbsp;
+
+<div ng-repeat="product in shop.products | orderBy: shop.filter">
+    <div>
+        <p>{{product['imagelink']}}</p>
+        <p>{{product['name']}}</p>
+        <p>{{product['price']}}</p>
+        <button>Add</button>
+    </div>
+</div>

@@ -10,7 +10,7 @@ function routeConfig($routeProvider, $locationProvider) {
             controllerAs: 'home',
             css: 'app/styles/css/home.css'
         })
-        .when('/shop', {
+        .when('/shopping', {
             templateUrl: 'app/views/shop.html',
             controller: 'ShopController',
             controllerAs: 'shop',
@@ -33,6 +33,12 @@ function routeConfig($routeProvider, $locationProvider) {
             controller: 'ContactController',
             controllerAs: 'contact',
             css: 'app/styles/css/contact.css'
+        })
+        .when('/product', {
+            templateUrl: 'app/views/product.html',
+            controller: 'ProductController',
+            controllerAs: 'product',
+            css: 'app/styles/css/product.css'
         })
         .otherwise({redirectTo: '/'});
 }

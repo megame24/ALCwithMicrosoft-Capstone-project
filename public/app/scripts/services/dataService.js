@@ -3,7 +3,9 @@ angular.module('app').factory('dataService', ['$http', '$q', dataService]);
 function dataService($http, $q) {
     var service = {
         getData: getData,
-        homeProductData: homeProductData
+        home: {
+            homeProductData: homeProductData
+        }
     }
 
     return service;

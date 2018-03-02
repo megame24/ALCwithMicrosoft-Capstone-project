@@ -1,13 +1,13 @@
-angular.module('app').controller('ProductController', ['$location', '$window', 'dataService', 'cartService', ProductController]);
+angular.module('app').controller('ProductController', ['initService', 'dataService', 'locationService', 'cartService', ProductController]);
 
-function ProductController($location, $window, dataService, cartService) {
+function ProductController(initService, dataService, locationService, cartService) {
     var product = this;
     var value;
     product.product;
     product.qty = 1;
-    product.name = $location.search()['name'];
+    product.name = locationService.search();
     product.back = function() {
-        $window.history.back()
+        locationService.back();
     }
 
     product.updateQty = function(qty) {
@@ -19,15 +19,7 @@ function ProductController($location, $window, dataService, cartService) {
         cartService.addToCart(value);
     }
 
-    function getData(cb) {
-        dataService.getData().then(function(result){
-            cb(result);
-        }, function(err) {
-            console.log(err);
-        });
-    }
-
-    getData(function(result){
+    initService.getData(function(result){
         dataService.product.getProduct(result, product);
         value = {
             image: product.product['imagelink'],

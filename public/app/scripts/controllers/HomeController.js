@@ -1,22 +1,14 @@
-angular.module('app').controller('HomeController', ['dataService', '$scope', '$location', HomeController]);
+angular.module('app').controller('HomeController', ['initService', 'dataService', '$scope', 'locationService', HomeController]);
 
-function HomeController(dataService, $scope, $location) {
+function HomeController(initService, dataService, $scope, locationService) {
     var home = this;
     home.products = [];
 
-    function getData(cb) {
-        dataService.getData().then(function(result){
-            cb(result);
-        }, function(err) {
-            console.log(err);
-        });
-    }
-
     $scope.redirect = function(name) {
-        $location.path('/product').search('name', name)
+        locationService.redirect(name);
     }
 
-    getData(function(result){
+    initService.getData(function(result){
         dataService.home.homeProductData(result, home.products);
     });
 

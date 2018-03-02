@@ -1,6 +1,6 @@
-angular.module('app').controller('ShopController', ['dataService', '$location', '$window', 'cartService', ShopController]);
+angular.module('app').controller('ShopController', ['initService', 'locationService', 'shopControllerService', ShopController]);
 
-function ShopController(dataService, $location, $window, cartService) {
+function ShopController(initService, locationService, shopControllerService) {
     var shop = this;
     shop.subcategory;
     shop.subcategoryLength;
@@ -8,57 +8,26 @@ function ShopController(dataService, $location, $window, cartService) {
     shop.products = [];
 
     shop.addToCart = function(product) {
-        var value = {
-            image: product['imagelink'],
-            name: product['name'],
-            unitPrice: product['price'],
-            qty: 1
-        }
-        cartService.addToCart(value);
+        shopControllerService.addToCart(product);
     }
 
     shop.updateProducts = function(subcategory) {
-        shop.subcategory = subcategory;
-        shop.subcategoryLength = subcategory['items'].length;
-        shop.products = subcategory['items'];
-        if(shop.checkStatus) {
-            shop.inStock();
-        }
+        shopControllerService.updateProducts(shop, subcategory);
     }
 
     shop.inStock = function(bool) {
-        if(bool === false) {
-          shop.products = shop.subcategory['items'];  
-        } else {
-            shop.products = shop.products.filter(function(product) {
-                return Number(product['stock']) > 0;
-            });
-        }
+        shopControllerService.inStock(shop, bool);
     }
 
     shop.sort = function(myValue) {
-        sorts = {
-            'none': '',
-            'alphabetical': 'name',
-            'price': 'price',
-            'rating': 'rating'
-        }
-        shop.filter = sorts[myValue]; 
+        shopControllerService.sort(shop, myValue); 
     }
 
     shop.redirect = function(name) {
-        $location.path('/product').search('name', name)
+        locationService.redirect(name);
     }
 
-    function getData(cb) {
-        dataService.getData().then(function(result){
-            cb(result);
-        }, function(err) {
-            console.log(err);
-        });
-    }
-
-    getData(function(result){
+    initService.getData(function(result){
         shop.data = result;
         shop.subcategory = result[0]['subcategories'][0];
         shop.subcategoryLength = result[0]['subcategories'][0]['items'].length;

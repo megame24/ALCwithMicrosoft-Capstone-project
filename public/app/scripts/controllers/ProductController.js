@@ -1,26 +1,22 @@
-angular.module('app').controller('ProductController', ['$location', '$window', 'dataService', ProductController]);
+angular.module('app').controller('ProductController', ['$location', '$window', 'dataService', 'cartService', ProductController]);
 
-function ProductController($location, $window, dataService) {
+function ProductController($location, $window, dataService, cartService) {
     var product = this;
+    var value;
     product.product;
+    product.qty = 1;
     product.name = $location.search()['name'];
     product.back = function() {
         $window.history.back()
     }
 
-    function getProduct(array) {
-       array.forEach(function(element) {
-           var subElements = element['subcategories'];
-           subElements.forEach(function(element) {
-                var itemElements = element['items'];
-                itemElements.forEach(function(element) {
-                    if(element['name'] === product.name) {
-                        product.product = element;
-                        return;
-                    }
-                });
-           });
-       });
+    product.updateQty = function(qty) {
+        value.qty = qty;
+        cartService.updateQty(qty, value);
+    }
+
+    product.addToCart = function() {
+        cartService.addToCart(value);
     }
 
     function getData(cb) {
@@ -32,6 +28,12 @@ function ProductController($location, $window, dataService) {
     }
 
     getData(function(result){
-        getProduct(result);
+        dataService.product.getProduct(result, product);
+        value = {
+            image: product.product['imagelink'],
+            name: product.product['name'],
+            unitPrice: product.product['price'],
+            qty: product.qty
+        }
     });
 }

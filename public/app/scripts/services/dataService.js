@@ -5,6 +5,9 @@ function dataService($http, $q) {
         getData: getData,
         home: {
             homeProductData: homeProductData
+        },
+        product: {
+            getProduct: getProduct
         }
     }
 
@@ -32,6 +35,21 @@ function dataService($http, $q) {
             var product = randomProduct();
             validProduct(product, randomProduct, array);
         }
+    }
+
+    function getProduct(array, product) {
+        array.forEach(function(element) {
+            var subElements = element['subcategories'];
+            subElements.forEach(function(element) {
+                 var itemElements = element['items'];
+                 itemElements.forEach(function(element) {
+                     if(element['name'] === product.name) {
+                         product.product = element;
+                         return;
+                     }
+                 });
+            });
+        });
     }
 
     function getData() {

@@ -1,11 +1,22 @@
-angular.module('app').controller('ShopController', ['dataService', '$location', '$window', ShopController]);
+angular.module('app').controller('ShopController', ['dataService', '$location', '$window', 'cartService', ShopController]);
 
-function ShopController(dataService, $location, $window) {
+function ShopController(dataService, $location, $window, cartService) {
     var shop = this;
     shop.subcategory;
     shop.subcategoryLength;
     shop.data = [];
     shop.products = [];
+
+    shop.addToCart = function(product) {
+        var value = {
+            image: product['imagelink'],
+            name: product['name'],
+            unitPrice: product['price'],
+            qty: 1
+        }
+        cartService.addToCart(value);
+    }
+
     shop.updateProducts = function(subcategory) {
         shop.subcategory = subcategory;
         shop.subcategoryLength = subcategory['items'].length;

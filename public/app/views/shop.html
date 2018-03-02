@@ -27,7 +27,7 @@
             <p>{{product['imagelink']}}</p>
         </a>
         <a href="#" ng-click="shop.redirect(product['name'])">{{product['name']}}</a>
-        <p>{{product['price']}}</p>
-        <button>Add</button>
+        <p>&#8358;{{(product['price']).toFixed(2)}}</p>
+        <button ng-click="shop.addToCart(product)">Add</button>
     </div>
 </div>

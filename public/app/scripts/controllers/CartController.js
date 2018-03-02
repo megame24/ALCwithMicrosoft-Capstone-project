@@ -41,6 +41,10 @@ function CartController(cartService) {
 
     cart.checkout = function(sign) {
         var message = `${cart.details.name} your purchase worth N${cart.total} has been shipped to ${cart.details.address}, ${cart.details.city}. Thank you for your patronage, we hope to hear from you soon.`
+        cartService.clearCart();
+        cart.cart = cartService.getCart();
+        cart.subtotalArray = [];
+        subtotal(cart.subtotalArray);
         alert(message);
     }
 }

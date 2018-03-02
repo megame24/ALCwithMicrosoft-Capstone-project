@@ -36,7 +36,7 @@
     <p>Shipping: &#8358;{{cart.shipping}}</p>
     <p>Tax(10%): &#8358;{{cart.tax}}</p>
     <p>Total: &#8358;{{cart.total}}</p>
-    <input type="submit" value="Checkout">
+    <input type="submit" value="Checkout" ng-disabled="cart.total == 0">
 </form>
 
 <!-- ng-click="cart.checkout()" -->

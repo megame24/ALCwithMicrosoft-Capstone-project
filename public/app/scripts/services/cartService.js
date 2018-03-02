@@ -35,7 +35,7 @@ function cartService($window) {
     }
 
     function clearCart() {
-        $window.localStorage.clear();
+        $window.localStorage.removeItem('cart');
     }
 
     function getCart() {

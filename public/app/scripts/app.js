@@ -1,4 +1,4 @@
-angular.module('app', ['ngRoute', 'angularCSS']);
+angular.module('app', ['ngRoute']);
 angular.module('app').config(['$routeProvider', '$locationProvider', routeConfig]);
 
 function routeConfig($routeProvider, $locationProvider) {
@@ -7,38 +7,32 @@ function routeConfig($routeProvider, $locationProvider) {
         .when('/', {
             templateUrl: 'app/views/home.html',
             controller: 'HomeController',
-            controllerAs: 'home',
-            css: 'app/styles/css/home.css'
+            controllerAs: 'home'
         })
         .when('/shopping', {
             templateUrl: 'app/views/shop.html',
             controller: 'ShopController',
-            controllerAs: 'shop',
-            css: 'app/styles/css/shop.css'
+            controllerAs: 'shop'
         })
         .when('/cart', {
             templateUrl: 'app/views/cart.html',
             controller: 'CartController',
-            controllerAs: 'cart',
-            css: 'app/styles/css/cart.css'
+            controllerAs: 'cart'
         })
         .when('/about', {
             templateUrl: 'app/views/about.html',
             controller: 'AboutController',
-            controllerAs: 'about',
-            css: 'app/styles/css/about.css'
+            controllerAs: 'about'
         })
         .when('/contact', {
             templateUrl: 'app/views/contact.html',
             controller: 'ContactController',
-            controllerAs: 'contact',
-            css: 'app/styles/css/contact.css'
+            controllerAs: 'contact'
         })
         .when('/product', {
             templateUrl: 'app/views/product.html',
             controller: 'ProductController',
-            controllerAs: 'product',
-            css: 'app/styles/css/product.css'
+            controllerAs: 'product'
         })
         .otherwise({redirectTo: '/'});
 }

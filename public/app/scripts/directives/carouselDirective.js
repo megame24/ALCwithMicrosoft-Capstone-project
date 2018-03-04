@@ -6,7 +6,7 @@ function carousel(dataService) {
         templateUrl: 'app/views/directiveViews/carousel.html',
         link: function($scope, element, attrs) {
             var figures = $('#carousel figure');
-            function slide(array, index, sign1, sign2, last) {
+            function slide(array, index, sign1, sign2, nextImage) {
                 $(array[index]).animate({
                     left: (sign1 + '=300px'),
                     opacity: 0
@@ -16,7 +16,7 @@ function carousel(dataService) {
                     .css({'left': '0px', 'opacity': '1'});
                 });
                 setTimeout(function(){
-                    $(array[last]).css({'opacity': '0', 'left': (sign2 + '400px')})
+                    $(array[nextImage]).css({'opacity': '0', 'left': (sign2 + '400px')})
                     .addClass('vissible')
                     .animate({
                         opacity: 1,

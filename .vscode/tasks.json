@@ -1,0 +1,6 @@
+{
+    "version": "0.1.0",
+    "command": "node-Sass",
+    "isShellCommand": true,
+    "args": ["./public/app/styles/scss/style.scss", "./public/app/styles/css/style.css"]
+}

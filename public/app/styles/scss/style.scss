@@ -1,0 +1,24 @@
+
+/*=======================
+    Initial Setup
+=========================*/
+
+@import "base/variables";
+@import "base/normalize";
+@import "base/utilities";
+@import "base/mixins";
+@import "base/media-queries";
+@import "base/reset";
+
+/*=======================
+    Modules
+=========================*/
+
+@import "modules/nav";
+@import "modules/footer";
+
+/*=======================
+    Components
+=========================*/
+
+@import "components/home";

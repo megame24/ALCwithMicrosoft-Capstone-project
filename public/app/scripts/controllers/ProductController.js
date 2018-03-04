@@ -20,7 +20,9 @@ function ProductController(initService, dataService, locationService, cartServic
     }
 
     initService.getData(function(result){
-        dataService.product.getProduct(result, product);
+        dataService.product.getProduct(result, product, function() {
+            product.product.price = product.product.price * 350;
+        });
         value = {
             image: product.product['imagelink'],
             name: product.product['name'],

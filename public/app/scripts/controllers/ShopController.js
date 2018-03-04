@@ -32,6 +32,9 @@ function ShopController(initService, locationService, shopControllerService) {
         shop.subcategory = result[0]['subcategories'][0];
         shop.subcategoryLength = result[0]['subcategories'][0]['items'].length;
         shop.products = result[0]['subcategories'][0]['items'];
+        shop.products.forEach(function(element) {
+            element.price = element.price * 350;
+        });
     });
 
 }

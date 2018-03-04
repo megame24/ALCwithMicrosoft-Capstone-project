@@ -24,6 +24,9 @@ function shopControllerService(cartService) {
         shop.subcategory = subcategory;
         shop.subcategoryLength = subcategory['items'].length;
         shop.products = subcategory['items'];
+        shop.products.forEach(function(element) {
+            element.price = element.price * 350;
+        });
         if(shop.checkStatus) {
             shop.inStock();
         }

@@ -37,7 +37,7 @@ function dataService($http, $q) {
         }
     }
 
-    function getProduct(array, product) {
+    function getProduct(array, product, cb) {
         array.forEach(function(element) {
             var subElements = element['subcategories'];
             subElements.forEach(function(element) {
@@ -50,6 +50,7 @@ function dataService($http, $q) {
                  });
             });
         });
+        cb();
     }
 
     function getData() {

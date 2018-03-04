@@ -42,6 +42,7 @@ function nav(cartService) {
             $scope.$on('$locationChangeSuccess', function () {
                 linkActive();
                 cartQty();
+                $('.mobile-menu').addClass('nav-hide');
             });
             function hideNav() {
                 $('.bars').click(function(){

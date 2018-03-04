@@ -386,9 +386,6 @@ textarea {
 .nav-hide {
   display: none; }
 
-.mobile-hide {
-  display: none; }
-
 /* 768px / 16px = 48em */
 /* Extra Small Only */
 /* Small Devices, Tablets */
@@ -480,19 +477,18 @@ a:hover {
         display: block; }
       #main-nav a:not(#home) {
         border-bottom: 1px solid #e7e7e7; }
-        #main-nav a:not(#home):hover {
+        #main-nav a:not(#home):hover:not(.active) {
           color: #fff;
           background-color: #2980b9;
           transition: background-color 0.2s; }
       #main-nav a#home {
         padding: 20px;
         border-bottom: 1px solid #2980b9; }
-      #main-nav li #cart-container {
-        position: relative; }
-        #main-nav li #cart-container #cart-qty {
-          position: absolute;
-          top: 14%;
-          right: 46%; } }
+      #main-nav a.active:not(#home) {
+        color: #fff;
+        background-color: #123851; }
+      #main-nav li #cart-container #cart-qty {
+        right: 46%; } }
   #main-nav a {
     font-weight: 600;
     color: inherit;
@@ -514,7 +510,9 @@ a:hover {
       right: 14%;
       font-size: 0.7em;
       color: #fff;
-      width: 15px;
+      width: 17px;
+      height: 17px;
+      line-height: 18px;
       background-color: #eb2f06;
       border-radius: 50%;
       text-align: center; }

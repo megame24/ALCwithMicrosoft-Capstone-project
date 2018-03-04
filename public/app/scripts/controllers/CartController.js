@@ -3,7 +3,7 @@ angular.module('app').controller('CartController', ['cartService', 'cartControll
 function CartController(cartService, cartControllerService) {
     var cart = this;
     cart.subtotal;
-    cart.shipping = '10.00';
+    cart.shipping = '1000.00';
     cart.tax;
     cart.total;
     cart.cart = cartService.getCart();

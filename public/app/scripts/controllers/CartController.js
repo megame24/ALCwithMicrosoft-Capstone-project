@@ -1,6 +1,6 @@
-angular.module('app').controller('CartController', ['cartService', 'cartControllerService', CartController]);
+angular.module('app').controller('CartController', ['$rootScope', 'cartService', 'cartControllerService', CartController]);
 
-function CartController(cartService, cartControllerService) {
+function CartController($rootScope, cartService, cartControllerService) {
     var cart = this;
     cart.subtotal;
     cart.shipping = '1000.00';
@@ -13,16 +13,19 @@ function CartController(cartService, cartControllerService) {
         cartControllerService.updateQty(i, qty, product, cart, function() {
             cartControllerService.subtotal(cart.subtotalArray, cart);
         });
+        cartService.cartQty($rootScope);
     }
     cart.removeFromCart = function(product) {
         cartControllerService.removeFromCart(product, cart, function() {
             cartControllerService.subtotal(cart.subtotalArray, cart);
         });
+        cartService.cartQty($rootScope);
     }
 
     cart.checkout = function() {
         cartControllerService.checkout(cart, function() {
             cartControllerService.subtotal(cart.subtotalArray, cart);
         });
+        cartService.cartQty($rootScope);
     }
 }

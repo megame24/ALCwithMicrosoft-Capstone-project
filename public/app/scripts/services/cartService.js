@@ -6,10 +6,30 @@ function cartService($window) {
         removeFromCart: removeFromCart,
         clearCart: clearCart,
         updateQty: updateQty,
-        getCart: getCart
+        getCart: getCart,
+        cartQty: cartQty
     }
 
     return service;
+
+    function cartQty(scope) {
+        $('#cart-qty').css('display', 'block');
+        var array = service.getCart();
+        var qty = 0;
+        scope.qty = 0;
+        if(array.length > 0) {
+            array.forEach(function(element) {
+                qty += element.qty;
+                if(qty > 9) {
+                    scope.qty = '9+';
+                } else {
+                    scope.qty = qty;
+                }
+            });
+        } else {
+            $('#cart-qty').css('display', 'none');
+        }
+    }
 
     function updateQty(qty, value) {
         var array = service.getCart();

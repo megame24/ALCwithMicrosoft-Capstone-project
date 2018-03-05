@@ -6,31 +6,31 @@ function carousel(dataService) {
         templateUrl: 'app/views/directiveViews/carousel.html',
         link: function($scope, element, attrs) {
             var figures = $('#carousel figure');
-            function slide(array, index, sign1, sign2, nextImage) {
+            function slide(array, index, sign1, sign2, nextLeft, nextCss, nextImage) {
                 $(array[index]).animate({
-                    left: (sign1 + '=300px'),
+                    left: (sign1 + '=67%'),
                     opacity: 0
                 }, 500, function() {
                     $(array[index])
                     .removeClass('vissible')
-                    .css({'left': '0px', 'opacity': '1'});
+                    .css({'left': ('33.5%'), 'opacity': '1'});
                 });
                 setTimeout(function(){
-                    $(array[nextImage]).css({'opacity': '0', 'left': (sign2 + '400px')})
+                    $(array[nextImage]).css({'opacity': '0', 'left': `${sign2}${nextCss}`})
                     .addClass('vissible')
                     .animate({
                         opacity: 1,
-                        left: (sign1 + '=400px')
+                        left: (`${sign1}=${nextLeft}`)
                     }, 500);
                 }, 20)
             }
             function rotateImagesFront() {
                 for(var i = 0; i < figures.length; i++){
                     if(figures[i].className == 'vissible' && i != figures.length - 1){
-                        slide(figures, i, '+', '-', (i + 1));
+                        slide(figures, i, '+', '-', '100.5%', '67%', (i + 1));
                         break;
                     } else if(figures[i].className == 'vissible' && i == figures.length - 1) {
-                        slide(figures, i, '+', '-', (0));
+                        slide(figures, i, '+', '-', '100.5%', '67%', (0));
                         break;
                     }
                 }
@@ -38,10 +38,10 @@ function carousel(dataService) {
             function rotateImagesBack() {
                 for(var i = 0; i < figures.length; i++){
                     if(figures[i].className == 'vissible' && i != 0){
-                        slide(figures, i, '-', '+', (i - 1));
+                        slide(figures, i, '-', '+', '67%', '100.5%', (i - 1));
                         break;
                     } else if(figures[i].className == 'vissible' && i == 0) {
-                        slide(figures, i, '-', '+', (figures.length - 1));
+                        slide(figures, i, '-', '+', '67%', '100.5%', (figures.length - 1));
                         break;
                     }
                 }
@@ -62,11 +62,35 @@ function carousel(dataService) {
             });
 
             $('#next').click(function() {
-                rotateImagesFront();
+                if($('#toggle-carousel').is(':checked')) {
+                    clearInterval(callRotateInterval);
+                    if($('figure').is(':animated')) {
+                        $('figure').promise().done(function() {
+                            rotateImagesFront();
+                        });
+                    } else {
+                        rotateImagesFront();
+                    }
+                    callRotateImages();
+                } else {
+                    rotateImagesFront();
+                }
             });
 
             $('#back').click(function() {
-                rotateImagesBack();
+                if($('#toggle-carousel').is(':checked')) {
+                    clearInterval(callRotateInterval);
+                    if($('figure').is(':animated')) {
+                        $('figure').promise().done(function() {
+                            rotateImagesBack();
+                        });
+                    } else {
+                        rotateImagesBack();
+                    }
+                    callRotateImages();
+                } else {
+                    rotateImagesBack();
+                }
             });
         }
     };

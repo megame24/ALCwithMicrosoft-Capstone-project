@@ -1,6 +1,6 @@
-angular.module('app').controller('ShopController', ['initService', 'locationService', 'shopControllerService', ShopController]);
+angular.module('app').controller('ShopController', ['$rootScope', 'cartService', 'initService', 'locationService', 'shopControllerService', ShopController]);
 
-function ShopController(initService, locationService, shopControllerService) {
+function ShopController($rootScope, cartService, initService, locationService, shopControllerService) {
     var shop = this;
     shop.subcategory;
     shop.subcategoryLength;
@@ -9,6 +9,7 @@ function ShopController(initService, locationService, shopControllerService) {
 
     shop.addToCart = function(product) {
         shopControllerService.addToCart(product);
+        cartService.cartQty($rootScope);
     }
 
     shop.updateProducts = function(subcategory) {

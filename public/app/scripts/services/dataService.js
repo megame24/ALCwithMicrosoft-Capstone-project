@@ -14,27 +14,40 @@ function dataService($http, $q) {
     return service;
 
     function homeProductData(result, array) {
-        function randomProduct() {
-            var num1 = Math.floor(Math.random()*result.length);
-            var num2 = Math.floor(Math.random()*result[num1]['subcategories'].length);
-            var num3 = Math.floor(Math.random()*result[num1]['subcategories'][num2]['items'].length);
-            return result[num1]['subcategories'][num2]['items'][num3];
+
+        //comment out below to make carousel display random products
+        function product(num1, num2, num3) {
+            return result[num1]['subcategories'][num2]['items'][num3]
         }
-        function validProduct(product, fxn, arr) {
-            if(product === undefined || arr.some(value => value['name'] === product['name'])) {
-                product = fxn();
-                validProduct(product, fxn, arr);
-            } else {
-                arr.push({
-                    name: product['name'],
-                    imageLink: product['imagelink']
-                });
-            }
-        }
-        for(var i = 0; i < 4; i++) {
-            var product = randomProduct();
-            validProduct(product, randomProduct, array);
-        }
+
+        array.push(product(0, 0, 0));
+        array.push(product(0, 0, 1));
+        array.push(product(3, 0, 16));
+        array.push(product(3, 1, 0));
+
+        //uncomment below to make carousel display random products
+
+        // function randomProduct() {
+        //     var num1 = Math.floor(Math.random()*result.length);
+        //     var num2 = Math.floor(Math.random()*result[num1]['subcategories'].length);
+        //     var num3 = Math.floor(Math.random()*result[num1]['subcategories'][num2]['items'].length);
+        //     return result[num1]['subcategories'][num2]['items'][num3];
+        // }
+        // function validProduct(product, fxn, arr) {
+        //     if(product === undefined || arr.some(value => value['name'] === product['name'])) {
+        //         product = fxn();
+        //         validProduct(product, fxn, arr);
+        //     } else {
+        //         arr.push({
+        //             name: product['name'],
+        //             imageLink: product['imagelink']
+        //         });
+        //     }
+        // }
+        // for(var i = 0; i < 4; i++) {
+        //     var product = randomProduct();
+        //     validProduct(product, randomProduct, array);
+        // }
     }
 
     function getProduct(array, product, cb) {

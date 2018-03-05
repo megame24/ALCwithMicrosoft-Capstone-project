@@ -1,5 +1,6 @@
 $mq-1: 48em !default; /* 768px / 16px = 48em */
 $mq-2: 62em !default;
+$mq-3: 75em !default;
 
 /* Extra Small Only */
 @mixin extra-small-only {
@@ -19,4 +20,10 @@ $mq-2: 62em !default;
  @media only screen and (min-width : $mq-2) {
   @content;
  }
+}
+
+@mixin large-only {
+    @media only screen and (min-width: $mq-3) {
+        @content;
+    }
 }

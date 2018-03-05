@@ -1,16 +1,109 @@
-.vissible {
-    display: block;
+
+
+
+#welcome-section {
+    h1 {
+        font-family: 'Dosis', sans-serif;
+        margin-bottom: 10px;
+        font-size: 400%;
+        font-weight: 300;
+    }
+
+    h3 {
+        font-family: 'Dosis', sans-serif;
+    }
+    a {
+        margin-right: 10px;
+    }
+    span {
+        opacity: 0.7;
+    }
 }
+
+#carousel-section {
+    padding: 0 0;
+}
+
 #carousel {
-    height: 310px;
     position: relative;
-    width: 400px;
+    width: 80%;
+    @include extra-small-only {
+        width: 100%;
+        height: 230px;
+    }
+    @include small-and-above {
+        height: 280px;
+    }
+    @include medium-and-above {
+        height: 330px;
+    }
     box-sizing: border-box;
     overflow: hidden;
+    margin: 0 auto;
+    border: 1px solid $mobile-nav-border;
+    margin-bottom: 10px;
 }
+
 figure {
     display: none;
     position: absolute;
-    left: 0;
-    top: 0;
+    left: 33.5%;
+    top: 10px;
+    margin: 0;
+    img {
+        @include extra-small-only {
+            width: 200px;
+            height: 200px;
+        }
+        @include small-and-above {
+            width: 250px;
+            height: 250px;
+        }
+        @include medium-and-above {
+            width: 300px;
+            height: 300px;
+        }
+    }
+}
+
+%arrow-position {
+    position: absolute;
+    top: 35.7%;
+    font-size: 500%;
+    cursor: pointer;
+}
+
+#back {
+    @extend %arrow-position;
+    left: 20px;
+}
+
+#next {
+    @extend %arrow-position;
+    right: 20px;
+}
+
+.priceNname {
+    position: absolute;
+    top: 70%;
+    left: 82%;
+    // @include small-and-above {
+    //     right: -20%;
+    // }
+    // @include medium-and-above {
+    //     right: -30%;
+    // }
+    .fig-name {
+        @include small-and-above {
+            font-size: 120%;
+        }
+        @include medium-and-above {
+            font-size: 150%;
+        }
+        color: $text-color;
+    }
+    .fig-price {
+        color: $cart-red;
+        @extend .fig-name;
+    }
 }

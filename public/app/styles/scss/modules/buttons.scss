@@ -1,0 +1,13 @@
+.btn {
+    display: inline-block;
+    padding: 10px 16px;
+    background-color: $main-orange;
+    color: darken($color: $main-blue, $amount: 15);
+    border-radius: 5%;
+}
+
+.btn:hover {
+    text-decoration: none;
+    background-color: darken($color: $main-orange, $amount: 10);
+    transition: background-color 0.2s;
+}

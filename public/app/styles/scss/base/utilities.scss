@@ -11,13 +11,50 @@
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-  max-width: 1170px;
+  width: 100%;
+}
+
+@include extra-small-only {
+  section {
+    padding: 10px 0;
+  }
+}
+
+@include small-and-above {
+  .container {
+    width: 750px;
+  }
+  section {
+    padding: 30px 20px;
+  }
+}
+
+@include medium-and-above {
+  .container {
+    width: 970px;
+  }
+}
+
+@include large-only {
+  .container {
+    width: 1170px;
+  }
 }
 
 .phone {
   display: none;
 }
 
+@include extra-small-only {
+  .not-phone {
+    display: none;
+  }
+}
+
 .nav-hide {
   display: none;
+}
+
+.vissible {
+  display: block;
 }

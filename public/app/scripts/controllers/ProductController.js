@@ -1,6 +1,6 @@
-angular.module('app').controller('ProductController', ['initService', 'dataService', 'locationService', 'cartService', ProductController]);
+angular.module('app').controller('ProductController', ['$rootScope', 'cartService', 'initService', 'dataService', 'locationService', 'cartService', ProductController]);
 
-function ProductController(initService, dataService, locationService, cartService) {
+function ProductController($rootScope, cartService, initService, dataService, locationService, cartService) {
     var product = this;
     var value;
     product.product;
@@ -17,6 +17,7 @@ function ProductController(initService, dataService, locationService, cartServic
 
     product.addToCart = function() {
         cartService.addToCart(value);
+        cartService.cartQty($rootScope);
     }
 
     initService.getData(function(result){

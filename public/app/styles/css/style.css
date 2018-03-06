@@ -606,6 +606,9 @@ footer {
   margin-bottom: 10px;
   font-size: 400%;
   font-weight: 300; }
+  @media only screen and (max-width: 47.9375em) {
+    #welcome-section h1 {
+      font-size: 300%; } }
 
 #welcome-section h3 {
   font-family: 'Dosis', sans-serif; }
@@ -645,6 +648,9 @@ figure {
   top: 10px;
   margin: 0; }
   @media only screen and (max-width: 47.9375em) {
+    figure {
+      left: 25%; } }
+  @media only screen and (max-width: 47.9375em) {
     figure img {
       width: 200px;
       height: 200px; } }
@@ -662,6 +668,9 @@ figure {
   top: 35.7%;
   font-size: 500%;
   cursor: pointer; }
+  @media only screen and (max-width: 47.9375em) {
+    #back, #next {
+      font-size: 300%; } }
 
 #back {
   left: 20px; }

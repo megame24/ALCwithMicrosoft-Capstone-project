@@ -6,19 +6,18 @@ function nav(cartService) {
         templateUrl: 'app/views/directiveViews/nav.html',
         link: function($scope, element, attrs) {
             
-            var url = 'http://localhost:8080';
             function linkActive() {
-                if(location.href == `${url}/`) {
+                if(window.location.pathname == `/`) {
                     $('.home').addClass('active');
                     $('#cart').removeClass('active');
                     $('#shopping').removeClass('active');
                     $('.container').removeClass('shop-container');
-                } else if(location.href == `${url}/cart`) {
+                } else if(window.location.pathname == `/cart`) {
                     $('.home').removeClass('active');
                     $('#cart').addClass('active');
                     $('#shopping').removeClass('active');
                     $('.container').addClass('shop-container');
-                } else if(location.href == `${url}/shopping`) {
+                } else if(window.location.pathname == `/shopping`) {
                     $('.home').removeClass('active');
                     $('#cart').removeClass('active');
                     $('#shopping').addClass('active');

@@ -1,33 +1,64 @@
-<p>showing <code>{{shop.products.length}}</code> of <code>{{shop.subcategoryLength}}</code> items in <strong>{{shop.subcategory['name']}}</strong></p>
 
-<div>In stock Only <input type="checkbox" ng-init='checkStatus=false' ng-model='shop.checkStatus' ng-click='shop.inStock(shop.checkStatus)'></div>
-<div>
-    <label>Sort by:</label>
-    <select ng-model="myValue" ng-change="shop.sort(myValue)" class="ng-not-empty">
-        <option value="">None</option>
-        <option value="alphabetical">Alphabetical</option>
-        <option value="price">Price</option>
-        <option value="rating">Rating</option>
-    </select>
-</div>
+<section id="shop-section">
+    <div class="row">
+        <div class="sm-col-3">
+            <div id="cat-sub">
+                <div id="header">
+                    <p>Categories</p>
+                </div>
 
-<div ng-repeat="element in shop.data">
-    <h4 ng-model="clicked" ng-init="clicked=true" ng-click="clicked ? clicked=false: clicked=true">{{element['category']}}</h4>
-    <div class="sub-cats" ng-repeat="elem in element['subcategories']" ng-hide="clicked">
-        <p ng-click="shop.updateProducts(elem)">{{elem['name']}}</p>
+                <div ng-repeat="element in shop.data">
+                    <h4 ng-model="clicked" ng-init="clicked=true" ng-click="clicked ? clicked=false: clicked=true">{{element['category']}}</h4>
+                    <div class="sub-cats" ng-repeat="elem in element['subcategories']" ng-hide="clicked">
+                        <p ng-click="shop.updateProducts(elem)">{{elem['name']}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="sm-col-9">
+            <div id="products">
+                <div class="row">
+                    <div class="md-col-6">
+                        <p>showing <code>{{shop.products.length}}</code> of <code>{{shop.subcategoryLength}}</code> items in <strong>{{shop.subcategory['name']}}</strong></p>
+                    </div>
+
+                    <div class="md-col-6">
+                        <div id="stock-sort">
+                            <span><input type="checkbox" ng-init='checkStatus=false' ng-model='shop.checkStatus' ng-click='shop.inStock(shop.checkStatus)'> In stock Only</span>
+                            &nbsp;&nbsp;
+                            <span>
+                                <label>Sort by:</label>
+                                <select ng-model="myValue" ng-change="shop.sort(myValue)" class="ng-not-empty">
+                                    <option value="">None</option>
+                                    <option value="alphabetical">Alphabetical</option>
+                                    <option value="price">Price</option>
+                                    <option value="rating">Rating</option>
+                                </select>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div ng-repeat="product in shop.products | orderBy: shop.filter">
+                        <div class="sm-col-4 md-col-3">
+                            <div class="shop-product">
+                                <div>
+                                    <a href="#" ng-click="shop.redirect(product['name'])">
+                                        <img src="{{product['imagelink']}}">
+                                        <!-- <p>{{product['imagelink']}}</p> -->
+                                    </a>
+                                </div>
+                                <p  class="name"><a href="#" ng-click="shop.redirect(product['name'])">{{product['name']}}</a></p>
+                                <p class="price">&#8358;{{(product['price']).toFixed(2)}}</p>
+                                <a href="#" class="btn-ghost" ng-click="shop.addToCart(product)">Add</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
-
-&nbsp; &nbsp;
-
-<div ng-repeat="product in shop.products | orderBy: shop.filter">
-    <div>
-        <a href="#" ng-click="shop.redirect(product['name'])">
-            <!-- <img src="{{product['imagelink']}}" width="300px" height="300px"> -->
-            <p>{{product['imagelink']}}</p>
-        </a>
-        <a href="#" ng-click="shop.redirect(product['name'])">{{product['name']}}</a>
-        <p>&#8358;{{(product['price']).toFixed(2)}}</p>
-        <a href="#" class="btn" ng-click="shop.addToCart(product)">Add</a>
-    </div>
-</div>
+    <top-directive></top-directive>
+</section>

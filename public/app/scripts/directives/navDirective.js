@@ -12,18 +12,22 @@ function nav(cartService) {
                     $('.home').addClass('active');
                     $('#cart').removeClass('active');
                     $('#shopping').removeClass('active');
+                    $('.container').removeClass('shop-container');
                 } else if(location.href == `${url}/cart`) {
                     $('.home').removeClass('active');
                     $('#cart').addClass('active');
                     $('#shopping').removeClass('active');
+                    $('.container').removeClass('shop-container');
                 } else if(location.href == `${url}/shopping`) {
                     $('.home').removeClass('active');
                     $('#cart').removeClass('active');
                     $('#shopping').addClass('active');
+                    $('.container').addClass('shop-container');
                 } else {
                     $('.home').removeClass('active');
                     $('#cart').removeClass('active');
                     $('#shopping').removeClass('active');
+                    $('.container').removeClass('shop-container');
                 }
             }
             cartService.cartQty($scope);

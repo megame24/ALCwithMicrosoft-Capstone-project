@@ -14,6 +14,10 @@
   width: 100%;
 }
 
+.shop-container {
+  width: 100%;
+}
+
 @include extra-small-only {
   section {
     padding: 10px 0;
@@ -24,6 +28,9 @@
   .container {
     width: 750px;
   }
+  .shop-container {
+    width: 100%;
+  }
   section {
     padding: 30px 20px;
   }
@@ -33,11 +40,17 @@
   .container {
     width: 970px;
   }
+  .shop-container {
+    width: 100%;
+  }
 }
 
 @include large-only {
   .container {
     width: 1170px;
+  }
+  .shop-container {
+    width: 100%;
   }
 }
 

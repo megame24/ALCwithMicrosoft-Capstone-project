@@ -4,10 +4,23 @@
     background-color: $main-orange;
     color: darken($color: $main-blue, $amount: 15);
     border-radius: 5%;
+    border: 1px solid $main-orange;
 }
 
 .btn:hover {
     text-decoration: none;
     background-color: darken($color: $main-orange, $amount: 10);
     transition: background-color 0.2s;
+}
+
+.btn-ghost {
+    @extend .btn;
+    background-color: #fff;
+    border: 1px solid darken($color: $main-blue, $amount: 15);
+}
+
+.btn-ghost:hover {
+    @extend .btn:hover;
+    background-color: darken($color: $main-blue, $amount: 15);
+    color: #fff;
 }

@@ -4,12 +4,12 @@
     background-color: $main-orange;
     color: darken($color: $main-blue, $amount: 15);
     border-radius: 5%;
-    border: 1px solid $main-orange;
+    border: 1px solid darken($color: $main-orange, $amount: 10);
 }
 
 .btn:hover {
     text-decoration: none;
-    background-color: darken($color: $main-orange, $amount: 10);
+    background-color: lighten($color: $main-orange, $amount: 10);
     transition: background-color 0.2s;
 }
 

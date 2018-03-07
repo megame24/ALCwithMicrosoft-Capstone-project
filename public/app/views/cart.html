@@ -1,43 +1,59 @@
-<h2>Shopping Cart</h2>
+<section id="cart-section">
+    <div class="row">
+        <div class="sm-col-8">
+            <h3>Shopping Cart</h3>
 
-<table ng-if="cart.cart.length != 0">
-    <thead>
-        <tr>
-            <th>image</th>
-            <th>name</th>
-            <th>unit price</th>
-            <th>qty</th>
-            <th>cost</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="product in cart.cart">
-            <td>
-                <!-- <img src="{{product['image']}}" width="100px" height="100px"> -->
-                <p>{{product['image']}}</p>
-            </td>
-            <td>{{product['name']}}</td>
-            <td>&#8358;{{product['unitPrice']}}</td>
-            <td><input type="number" ng-init="qty=product['qty']" id="qty" ng-model="qty" ng-change="cart.updateQty($index, qty, product)" min="1"></td>
-            <td>&#8358;{{(product.unitPrice * qty).toFixed(2)}}</td>
-            <td><button ng-click="cart.removeFromCart(product)">x</button></td>
-        </tr>
-    </tbody>
-</table>
-<div ng-if="cart.cart.length == 0">Shopping cart is empty</div>
+            <table ng-if="cart.cart.length != 0">
+                <thead>
+                    <tr>
+                        <th class="img-div">image</th>
+                        <th>name</th>
+                        <th>unit price</th>
+                        <th>qty</th>
+                        <th class="phone-table">cost</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="product in cart.cart">
+                        <td>
+                            <div class="img-div">
+                                <img src="{{product['image']}}">
+                            </div>
+                        </td>
+                        <td>{{product['name']}}</td>
+                        <td class="price">&#8358;{{product['unitPrice'].toFixed(0)}}</td>
+                        <td>
+                            <input type="number" ng-init="qty=product['qty']" id="qty" ng-model="qty" ng-change="cart.updateQty($index, qty, product)"
+                                min="1">
+                        </td>
+                        <td class="price  phone-table">&#8358;{{(product.unitPrice * qty).toFixed(0)}}</td>
+                        <td>
+                            <i ng-click="cart.removeFromCart(product)" class="fas fa-times-circle delete"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div ng-if="cart.cart.length == 0">Shopping cart is empty</div>
+        </div>
 
-<p>Enter Shipping Details</p>
-<form name="form" ng-submit="cart.checkout()">
-    <input type="text" required="required" placeholder="Name" ng-model="cart.details.name"><br/>
-    <input type="text"  required="required" placeholder="Address" ng-model="cart.details.address"><br/>
-    <input type="text"  required="required" placeholder="City" ng-model="cart.details.city"><br/>
-    <input type="text"  required="required" placeholder="Phone Number" ng-model="cart.details.phone"><br/>
-    <p>Subtotal: &#8358;{{cart.subtotal}}</p>
-    <p>Shipping: &#8358;{{cart.shipping}}</p>
-    <p>Tax(10%): &#8358;{{cart.tax}}</p>
-    <p>Total: &#8358;{{cart.total}}</p>
-    <input type="submit" value="Checkout" ng-disabled="cart.total == 0">
-</form>
-
-<!-- ng-click="cart.checkout()" -->
+        <div class="sm-col-4">
+            <h3 id="details-head">Enter Shipping Details</h3>
+            <form name="form" ng-submit="cart.checkout()">
+                <input type="text" required="required" placeholder="Name" ng-model="cart.details.name">
+                <br/>
+                <input type="text" required="required" placeholder="Address" ng-model="cart.details.address">
+                <br/>
+                <input type="text" required="required" placeholder="City" ng-model="cart.details.city">
+                <br/>
+                <input type="text" required="required" placeholder="Phone Number" ng-model="cart.details.phone">
+                <br/>
+                <p>Subtotal: <span class="price">&#8358;{{cart.subtotal}}</span></p>
+                <p>Shipping: <span class="price">&#8358;{{cart.shipping}}</span></p>
+                <p>Tax(10%): <span class="price">&#8358;{{cart.tax}}</span></p>
+                <p >Total: <span class="price">&#8358;{{cart.total}}</span></p>
+                <input class="btn right" type="submit" ng-disabled="cart.total == 0" value="Checkout">
+            </form>
+        </div>
+    </div>
+</section>

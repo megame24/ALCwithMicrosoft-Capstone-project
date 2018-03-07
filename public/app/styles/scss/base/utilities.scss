@@ -57,9 +57,15 @@
 .phone {
   display: none;
 }
+.phone-table {
+  display: block;
+}
 
 @include extra-small-only {
   .not-phone {
+    display: none;
+  }
+  .phone-table {
     display: none;
   }
 }
@@ -70,4 +76,8 @@
 
 .vissible {
   display: block;
+}
+
+.price {
+  color: $cart-red;
 }

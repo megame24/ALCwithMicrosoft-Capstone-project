@@ -26,10 +26,10 @@ function cartControllerService(cartService) {
         for(var i = 0; i < array.length; i++) {
             subtotal += (array[i]['unitPrice'] * array[i]['qty']);
         }
-        cart.subtotal = subtotal.toFixed(2);
-        cart.tax = (cart.subtotal / 10).toFixed(2);
-        if(cart.subtotal == 0) cart.shipping = '0.00';
-        cart.total = (Number(cart.subtotal) + Number(cart.shipping) + Number(cart.tax)).toFixed(2);
+        cart.subtotal = subtotal.toFixed(0);
+        cart.tax = (cart.subtotal / 10).toFixed(0);
+        if(cart.subtotal == 0) cart.shipping = '0';
+        cart.total = (Number(cart.subtotal) + Number(cart.shipping) + Number(cart.tax)).toFixed(0);
     }
 
     function updateQty(i, qty, product, cart, cb) {

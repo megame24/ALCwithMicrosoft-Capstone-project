@@ -24,7 +24,7 @@ function carousel(dataService) {
                     }, 500);
                 }, 20)
             }
-            function rotateImagesFront() {
+            function rotateImagesBack() {
                 var slideObject = {
                     array: figures,
                     sign1: '+',
@@ -51,7 +51,7 @@ function carousel(dataService) {
                     }
                 }
             }
-            function rotateImagesBack() {
+            function rotateImagesFront() {
                 var slideObject = {
                     array: figures,
                     sign1: '-',
@@ -81,7 +81,7 @@ function carousel(dataService) {
 
             function callRotateImages() {
                 callRotateInterval = setInterval(function(){
-                    rotateImagesBack();
+                    rotateImagesFront();
                 }, 3000);
             }
 

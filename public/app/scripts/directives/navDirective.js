@@ -17,7 +17,7 @@ function nav(cartService) {
                     $('.home').removeClass('active');
                     $('#cart').addClass('active');
                     $('#shopping').removeClass('active');
-                    $('.container').removeClass('shop-container');
+                    $('.container').addClass('shop-container');
                 } else if(location.href == `${url}/shopping`) {
                     $('.home').removeClass('active');
                     $('#cart').removeClass('active');

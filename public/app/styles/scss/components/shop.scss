@@ -1,5 +1,9 @@
 
 #shop-section {
+    
+    [class*="col-"] {
+        padding-right: 7px;
+    }
     min-height: 82.3vh;
     padding: 30px 15px 0 15px;
     #cat-sub {

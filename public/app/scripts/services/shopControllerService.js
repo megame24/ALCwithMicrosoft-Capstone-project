@@ -1,7 +1,6 @@
 angular.module('app').factory('shopControllerService', ['cartService', shopControllerService]);
 
 function shopControllerService(cartService) {
-    var subCatNaira = ['Baby care'];
     var service = {
         addToCart: addToCart,
         updateProducts: updateProducts,
@@ -25,15 +24,6 @@ function shopControllerService(cartService) {
         shop.subcategory = subcategory;
         shop.subcategoryLength = subcategory['items'].length;
         shop.products = subcategory['items'];
-        if(!(subCatNaira.includes(shop.products[0].subcategory))) {
-            shop.products.forEach(function(element) {
-                element.price = element.price * 350;
-            });
-            subCatNaira.push(shop.products[0].subcategory);
-        }
-        if(shop.checkStatus) {
-            shop.inStock();
-        }
     }
 
     function inStock(shop, bool) {

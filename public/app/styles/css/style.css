@@ -413,8 +413,13 @@ textarea {
 .phone {
   display: none; }
 
+.phone-table {
+  display: block; }
+
 @media only screen and (max-width: 47.9375em) {
   .not-phone {
+    display: none; }
+  .phone-table {
     display: none; } }
 
 .nav-hide {
@@ -422,6 +427,9 @@ textarea {
 
 .vissible {
   display: block; }
+
+.price {
+  color: #bc0000; }
 
 html {
   box-sizing: border-box; }
@@ -443,6 +451,7 @@ ul,
 ol,
 li,
 form,
+#cart-section #details-head,
 fieldset,
 legend {
   margin: 0;
@@ -547,7 +556,7 @@ a:hover {
       width: 17px;
       height: 17px;
       line-height: 18px;
-      background-color: #eb2f06;
+      background-color: #DF1F00;
       border-radius: 50%;
       text-align: center; }
 
@@ -601,11 +610,11 @@ footer {
   background-color: #f7b731;
   color: #1b557a;
   border-radius: 5%;
-  border: 1px solid #f7b731; }
+  border: 1px solid #eca309; }
 
 .btn:hover, .btn-ghost:hover {
   text-decoration: none;
-  background-color: #eca309;
+  background-color: #f9c862;
   transition: background-color 0.2s; }
 
 .btn-ghost {
@@ -642,8 +651,6 @@ footer {
     float: right; }
   [class*="col-"] {
     float: left; }
-  [class*="col-"] {
-    padding-right: 7px; }
   .sm-col-1 {
     width: 8.33%; }
   .sm-col-2 {
@@ -723,7 +730,7 @@ footer {
 
 #scrollToTop {
   position: fixed;
-  top: 90.5%;
+  bottom: 30px;
   right: 30px;
   display: none;
   padding: 5px 13px;
@@ -827,11 +834,13 @@ figure {
       .priceNname .fig-name, .priceNname .fig-price {
         font-size: 150%; } }
   .priceNname .fig-price {
-    color: #eb2f06; }
+    color: #bc0000; }
 
 #shop-section {
   min-height: 82.3vh;
   padding: 30px 15px 0 15px; }
+  #shop-section [class*="col-"] {
+    padding-right: 7px; }
   #shop-section #cat-sub {
     padding: 30px 0 30px 30px;
     background-color: #e7e7e7; }
@@ -884,7 +893,7 @@ figure {
       width: auto;
       margin: 0 auto; }
     #shop-section .shop-product .price {
-      color: #eb2f06; }
+      color: #bc0000; }
     #shop-section .shop-product .name {
       margin-top: 10px;
       margin-bottom: 5px; }
@@ -895,3 +904,48 @@ figure {
   @media only screen and (min-width: 62em) {
     #shop-section #stock-sort {
       float: right; } }
+
+#cart-section {
+  min-height: 82.3vh;
+  box-sizing: border-box; }
+  @media only screen and (max-width: 47.9375em) {
+    #cart-section {
+      padding: 15px; } }
+  #cart-section table {
+    width: 100%;
+    border-top: 2px solid #e7e7e7;
+    border-bottom: 2px solid #e7e7e7; }
+  #cart-section th, #cart-section td {
+    padding: 10px;
+    text-align: left; }
+  #cart-section #qty {
+    width: 40px; }
+  #cart-section .delete {
+    font-size: 100%;
+    cursor: pointer;
+    opacity: 0.8; }
+  #cart-section img {
+    max-width: 100%;
+    height: 60px; }
+  #cart-section [type="text"] {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 20px;
+    padding: 5px 10px; }
+  #cart-section form, #cart-section #details-head {
+    padding: 10px; }
+    @media only screen and (max-width: 47.9375em) {
+      #cart-section form, #cart-section #details-head {
+        padding: 0; } }
+    #cart-section form p, #cart-section #details-head p {
+      font-size: 110%; }
+    #cart-section form p:last-of-type, #cart-section #details-head p:last-of-type {
+      font-size: 120%;
+      font-weight: bold; }
+  #cart-section #details-head {
+    padding-top: 0; }
+    @media only screen and (max-width: 47.9375em) {
+      #cart-section #details-head {
+        padding: 20px 0 15px 0; } }
+  #cart-section [type="submit"] {
+    cursor: pointer; }

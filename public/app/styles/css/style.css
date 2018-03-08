@@ -765,7 +765,7 @@ footer {
     font-family: 'Dosis', sans-serif; }
   #welcome-section a {
     margin-right: 10px; }
-  #welcome-section span {
+  #welcome-section #toggle {
     opacity: 0.7; }
   #welcome-section #carousel {
     position: relative;

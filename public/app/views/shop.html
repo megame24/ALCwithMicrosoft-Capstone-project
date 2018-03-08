@@ -47,12 +47,11 @@
                                 <div>
                                     <a href="#" ng-click="shop.redirect(product['name'])">
                                         <img src="{{product['imagelink']}}">
-                                        <!-- <p>{{product['imagelink']}}</p> -->
                                     </a>
                                 </div>
                                 <p  class="name"><a href="#" ng-click="shop.redirect(product['name'])">{{product['name']}}</a></p>
-                                <p class="price">&#8358;{{(product['price']).toFixed(0)}}</p>
-                                <a href="#" class="btn-ghost" ng-click="shop.addToCart(product)">Add</a>
+                                <p class="price">&#8358;{{product['price']}}</p>
+                                <a href="#" class="btn-ghost" ng-click="shop.addToCart(product)"><i class="fas fa-plus"></i>&nbsp;&nbsp;Add To Cart</a>
                             </div>
                         </div>
                     </div>

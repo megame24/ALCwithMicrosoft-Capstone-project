@@ -16,9 +16,7 @@ function ShopController($rootScope, cartService, initService, locationService, s
     shop.updateProducts = function(subcategory) {
         shopControllerService.updateProducts(shop, subcategory);
         if(!(subCatNaira.includes(shop.products[0].subcategory))) {
-            shop.products.forEach(function(element) {
-                element.price = element.price * 350;
-            });
+            shopControllerService.priceHack(shop);
             subCatNaira.push(shop.products[0].subcategory);
         }
         if(shop.checkStatus) {
@@ -40,12 +38,10 @@ function ShopController($rootScope, cartService, initService, locationService, s
 
     initService.getData(function(result){
         shop.data = result;
-        shop.subcategory = result[0]['subcategories'][0];
-        shop.subcategoryLength = result[0]['subcategories'][0]['items'].length;
+        shop.subcategory = result[3]['subcategories'][0];
+        shop.subcategoryLength = result[3]['subcategories'][0]['items'].length;
         shop.products = result[3]['subcategories'][0]['items'];
-        shop.products.forEach(function(element) {
-            element.price = element.price * 350;
-        });
+        shopControllerService.priceHack(shop);
     });
 
 }

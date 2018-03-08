@@ -5,10 +5,17 @@ function shopControllerService(cartService) {
         addToCart: addToCart,
         updateProducts: updateProducts,
         inStock: inStock,
-        sort: sort
+        sort: sort,
+        priceHack: priceHack
     }
 
     return service;
+
+    function priceHack(shop) {
+        shop.products.forEach(function(element) {
+            element.price = (element.price * 350).toFixed(0);
+        });
+    }
 
     function addToCart(product) {
         var value = {

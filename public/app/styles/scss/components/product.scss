@@ -1,0 +1,33 @@
+#product-section {
+    min-height: 82.3vh;
+    .img-div {
+        #img {
+            margin: 10% auto;
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+            height: 300px;
+        }
+    }
+    .about-product {
+        @include extra-small-only {
+            text-align: center;
+        }
+        padding: 3%;
+        h1 {
+            margin-top: 20px;
+        }
+        #rating {
+            margin-bottom: 20px;
+        }
+        .price {
+            font-size: 200%;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+        a {
+            margin-top: 20px;
+        }
+    }
+}

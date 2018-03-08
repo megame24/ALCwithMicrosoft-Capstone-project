@@ -57,9 +57,6 @@
 .phone {
   display: none;
 }
-.phone-table {
-  display: block;
-}
 
 @include extra-small-only {
   .not-phone {
@@ -80,4 +77,17 @@
 
 .price {
   color: $cart-red;
+}
+
+.rating {
+  color: #f1c40f;
+}
+
+.not-rating {
+  opacity: 0.2;
+}
+
+
+.qty {
+  width: 40px;
 }

@@ -1,12 +1,32 @@
-<a href="#" ng-click="product.back()">Back</a>
-<p>{{product.name}}</p>
-<p>{{product.product['imagelink']}}</p>
-<p>Rating: {{product.product['rating']}}</p>
-<p>Stock: {{product.product['stock']}}</p>
-<p>&#8358;{{(product.product['price']).toFixed(0)}}</p>
-<p>{{product.product['description']}}</p>
-<div>
-    <label>Qty</label>
-    <input type="number" ng-init="qty=1" id="qty" ng-model="qty" ng-change="product.updateQty(qty)" min="1">
-</div>
-<button ng-click="product.addToCart()">Add</button>
+<section id="product-section">
+    <div class="container">
+        <div class="row">
+            <div class="sm-col-6 img-div">
+                <a href="" class="btn" ng-click="product.back()"><i class="fas fa-angle-left"></i>&nbsp;&nbsp;Back</a>
+                <div id="img">
+                    <img src="{{product.product['imagelink']}}">
+                </div>
+            </div>
+
+            <div class="sm-col-6 about-product">
+                <h1>{{product.name}}</h1>
+                <div id="rating">
+                    <span ng-repeat="rate in product.ratingArray" class="rating">
+                        <i class="fas fa-star"></i>
+                    </span>
+                    <span ng-repeat="notRate in product.notRatingArray" class="not-rating">
+                        <i class="fas fa-star"></i>
+                    </span>
+                </div>
+                <p class="stock">In Stock: {{product.product['stock']}}</p>
+                <p class="price">&#8358;{{product.product['price']}}</p>
+                <p class="description">{{product.product['description']}}</p>
+                <div>
+                    <label>Qty:</label>&nbsp;&nbsp;
+                    <input type="number" ng-init="qty=1" class="qty" ng-model="qty" ng-change="product.updateQty(qty)" min="1">
+                </div>
+                <a href="" class="btn-ghost" ng-click="product.addToCart()"><i class="fas fa-plus"></i>&nbsp;&nbsp;Add To Cart</a>
+            </div>
+        </div>
+    </div>
+</section>

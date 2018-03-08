@@ -22,9 +22,9 @@
                             </div>
                         </td>
                         <td>{{product['name']}}</td>
-                        <td class="price">&#8358;{{product['unitPrice'].toFixed(0)}}</td>
+                        <td class="price">&#8358;{{product['unitPrice']}}</td>
                         <td>
-                            <input type="number" ng-init="qty=product['qty']" id="qty" ng-model="qty" ng-change="cart.updateQty($index, qty, product)"
+                            <input type="number" ng-init="qty=product['qty']" class="qty" ng-model="qty" ng-change="cart.updateQty($index, qty, product)"
                                 min="1">
                         </td>
                         <td class="price  phone-table">&#8358;{{(product.unitPrice * qty).toFixed(0)}}</td>
@@ -34,7 +34,14 @@
                     </tr>
                 </tbody>
             </table>
-            <div ng-if="cart.cart.length == 0">Shopping cart is empty</div>
+            <div ng-if="cart.cart.length == 0" class="empty-cart">
+                <div class="cart-svg">
+                    <i class="ion-ios-cart-outline"></i>
+                </div>
+                <div>
+                    <p>Shopping cart is empty, continue shopping &nbsp;&nbsp;<a href="/shopping" class="btn"><i class="fas fa-shopping-cart"></i>&nbsp;&nbsp;Shop All</a></p>
+                </div>
+            </div>
         </div>
 
         <div class="sm-col-4">
@@ -56,4 +63,5 @@
             </form>
         </div>
     </div>
+    <top-directive></top-directive>
 </section>

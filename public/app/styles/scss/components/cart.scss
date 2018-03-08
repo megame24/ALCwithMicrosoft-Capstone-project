@@ -14,9 +14,6 @@
         padding: 10px;
         text-align: left;
     }
-    #qty {
-        width: 40px;
-    }
     .delete {
         font-size: 100%;
         cursor: pointer;
@@ -54,5 +51,12 @@
     }
     [type="submit"] {
         cursor: pointer;
+    }
+    .empty-cart {
+        margin: 15%;
+        text-align: center;
+        .cart-svg {
+            font-size: 700%;
+        }
     }
 }

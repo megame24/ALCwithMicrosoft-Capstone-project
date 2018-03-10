@@ -10,6 +10,10 @@ function locationService($window, $location) {
     return service;
 
     function redirect(name) {
+        // var name1 = `name=${name}`;
+        // var searchParams = new URLSearchParams(name1);
+        // window.location =  `/product?name=${name}`;
+        // window.location.search = searchParams;
         $location.path('/product').search('name', name);
     }
 

@@ -17,6 +17,9 @@
         padding: 3%;
         h1 {
             margin-top: 20px;
+            @include extra-small-only {
+                margin-top: 0;
+            }
         }
         #rating {
             margin-bottom: 20px;

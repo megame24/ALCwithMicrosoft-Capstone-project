@@ -1,6 +1,7 @@
 angular.module('app', ['ngRoute']);
 angular.module('app').config(['$routeProvider', '$locationProvider', routeConfig]);
 
+//route configuration
 function routeConfig($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
     $routeProvider
@@ -36,3 +37,11 @@ function routeConfig($routeProvider, $locationProvider) {
         })
         .otherwise({redirectTo: '/'});
 }
+
+//this block of code, makes each location change to trigger scroll to top
+angular.module('app')
+.run(function($rootScope, $anchorScroll){
+    $rootScope.$on("$locationChangeSuccess", function(){
+        $anchorScroll();
+    });
+});

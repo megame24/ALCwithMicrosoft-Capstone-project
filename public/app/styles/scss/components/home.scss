@@ -2,7 +2,9 @@
 
 
 #welcome-section {
-    min-height: 82.3vh;
+    @include small-and-above {
+        min-height: 82.3vh;
+    }
     padding-bottom: 0;
     h1 {
         font-family: 'Dosis', sans-serif;

@@ -1,4 +1,4 @@
-angular.module('app', ['ngRoute']);
+angular.module('app', ['ngRoute','angular-loading-bar', 'ngAnimate']);
 angular.module('app').config(['$routeProvider', '$locationProvider', routeConfig]);
 
 //route configuration

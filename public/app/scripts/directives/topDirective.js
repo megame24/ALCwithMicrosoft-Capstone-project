@@ -6,7 +6,7 @@ function topDirective() {
         templateUrl: 'app/views/directiveViews/top.html',
         link: function($scope, element, attrs) {
             
-            $("#scrollToTop").click(function() {
+            $(".scrollToTop").click(function() {
                 $("html, body").animate({ scrollTop: 0 }, "slow");
                 return false;
             });

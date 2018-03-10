@@ -734,7 +734,7 @@ footer {
   .lg-col-12 {
     width: 100%; } }
 
-#scrollToTop {
+.scrollToTop {
   position: fixed;
   bottom: 30px;
   right: 30px;
@@ -744,7 +744,7 @@ footer {
   font-size: 150%;
   color: #b4b4b4; }
   @media only screen and (max-width: 47.9375em) {
-    #scrollToTop {
+    .scrollToTop {
       display: block; } }
 
 /*=======================
@@ -1046,3 +1046,5 @@ figure {
       padding-bottom: 20px; }
     #about-section [class*=sm] p {
       margin-top: 30px; }
+  #about-section .scrollToTop {
+    display: block; }

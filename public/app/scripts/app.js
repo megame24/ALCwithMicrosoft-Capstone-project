@@ -45,3 +45,8 @@ angular.module('app')
         $anchorScroll();
     });
 });
+
+angular.module('app')
+  .config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
+    cfpLoadingBarProvider.includeBar = false;
+  }]);

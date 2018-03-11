@@ -1,1 +1,28 @@
-<h1>{{contact.welcome}}</h1>
+<section id="contact-section">
+    <div class="container">
+        <h2>Contact Us</h2>
+        <p>Have a question, suggestion or complaints?<br>
+        Please fill the form below, and we will get back to you as soon as possible.<br>
+    You can also contact us through<br> E-mail: <strong>grocerycloud@cloud.com</strong> <br> Phone: <strong>08012345678</strong></p>
+        <form name="form" ng-submit="contact.contact()">
+            <div class="block">
+                <input type="text" required="required" placeholder="Name" ng-model="contact.details.name">
+                <br/>
+                <input type="text" required="required" placeholder="E-mail" ng-model="contact.details.email">
+                <br/>
+                <select ng-model="contact.details.select" required="required">
+                    <option value="">--Select Subject--</option>
+                    <option value="Inferio Product">Inferio Product</option>
+                    <option value="Cancle Purchase">Cancle Purchase</option>
+                    <option value="Positive Review">Positive Review</option>
+                    <option value="Negative Review">Negative Review</option>
+                    <option value="Other">Other</option>
+                </select>
+                <br/>
+                <textarea required="required" placeholder="Message" ng-model="contact.details.message"></textarea>
+                <br/>
+                <input class="btn" type="submit" value="Send">
+            </div>
+        </form>
+    </div>
+</section>

@@ -220,6 +220,7 @@ hr {
 button,
 input,
 select,
+#contact-section textarea,
 textarea {
   font: inherit;
   /* 1 */
@@ -246,7 +247,8 @@ input {
    * 1. Remove the inheritance of text transform in Firefox.
    */
 button,
-select {
+select,
+#contact-section textarea {
   /* 1 */
   text-transform: none; }
 
@@ -1048,3 +1050,55 @@ figure {
       margin-top: 30px; }
   #about-section .scrollToTop {
     display: block; }
+
+#contact-section h2 {
+  text-align: center;
+  font-size: 200%;
+  margin: 0 auto;
+  margin-bottom: 20px; }
+  #contact-section h2:after {
+    content: "";
+    display: block;
+    width: 50px;
+    border-bottom: 2px solid #2980b9;
+    margin: 10px auto; }
+
+#contact-section p {
+  text-align: center;
+  width: 80%;
+  margin: 30px auto;
+  line-height: 2; }
+  @media only screen and (max-width: 47.9375em) {
+    #contact-section p {
+      width: 100%; } }
+
+#contact-section .block {
+  width: 70%;
+  margin: 0 auto; }
+  @media only screen and (max-width: 47.9375em) {
+    #contact-section .block {
+      width: 100%; } }
+
+#contact-section [required="required"]:not(textarea), #contact-section select, #contact-section textarea {
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  height: 50px; }
+
+#contact-section form, #contact-section #cart-section #details-head, #cart-section #contact-section #details-head {
+  padding: 10px; }
+  @media only screen and (max-width: 47.9375em) {
+    #contact-section form, #contact-section #cart-section #details-head, #cart-section #contact-section #details-head {
+      padding: 0; } }
+
+#contact-section textarea {
+  height: 150px; }
+
+#contact-section [type="submit"] {
+  width: 100%;
+  border-radius: 0;
+  cursor: pointer; }
+
+#contact-section strong {
+  font-size: 120%; }

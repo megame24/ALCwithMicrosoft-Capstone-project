@@ -11,6 +11,9 @@
             border-bottom: 2px solid $main-blue;
             margin: 10px auto;
         }
+        @include extra-small-only {
+            margin-top: 10px;
+        }
     }
     p {
         text-align: center;

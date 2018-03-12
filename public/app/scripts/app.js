@@ -46,6 +46,7 @@ angular.module('app')
     });
 });
 
+//allow only spiner for loading animation
 angular.module('app')
   .config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
     cfpLoadingBarProvider.includeBar = false;

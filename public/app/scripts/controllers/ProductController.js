@@ -12,30 +12,25 @@ function ProductController($rootScope, cartService, initService, dataService, lo
         locationService.back();
     }
 
+    //updates qty of item in cart on indication
     product.updateQty = function(qty) {
         value.qty = qty;
         cartService.updateQty(qty, value);
+        cartService.cartQty($rootScope); //re-call 'cartQty' of cart service to refresh cart content indicator(top right corner);
     }
 
+    //adds item to cart on clicking 'add to cart' botten on product page
     product.addToCart = function() {
         cartService.addToCart(value);
-        cartService.cartQty($rootScope);
+        cartService.cartQty($rootScope); //re-call 'cartQty' of cart service to refresh cart content indicator(top right corner);
     }
 
+    //initializes product controller with the needed data through init service and data service
     initService.getData(function(result){
         dataService.product.getProduct(result, product, function() {
-            product.product.price = (product.product.price * 350).toFixed(0);
-            // var productString = product.product.price.toString();
-            // if(productString.length > 3) {
-            //     var num = productString.length - 3;
-            //     productString = productString.slice(0, num) + ',' + productString.slice(num, productString.length);
-            //     product.product.price = productString;
-            // } else if(productString.length > 6) {
-            //     var num = productString.length - 3;
-            //     var num1 = productString.length - 6;
-            //     productString = productString.slice(0, num) + ',' + productString.slice(num, num1) + ',' + productString.slice(num1, productString.length);
-            //     product.product.price = productString;
-            // }
+            product.product.price = (product.product.price * 350).toFixed(0); //converts $ to naira
+
+            //controlls rate stars on the product page
             var notRating = 5 - product.product.rating;
             for(var i = 0; i < product.product.rating; i++) {
                 product.ratingArray.push(i);

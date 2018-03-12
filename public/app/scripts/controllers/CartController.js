@@ -3,29 +3,34 @@ angular.module('app').controller('CartController', ['$rootScope', 'cartService',
 function CartController($rootScope, cartService, cartControllerService) {
     var cart = this;
     cart.subtotal;
-    cart.shipping = '1000';
+    cart.shipping = '1000'; //shipping cost
     cart.tax;
     cart.total;
-    cart.cart = cartService.getCart();
-    cart.subtotalArray = cartControllerService.subtotalArray(cart);
-    cartControllerService.subtotal(cart.subtotalArray, cart);
+    cart.cart = cartService.getCart(); //get cart(array of items/products)
+    cart.subtotalArray = cartControllerService.subtotalArray(cart); //get subtotal array
+    cartControllerService.subtotal(cart.subtotalArray, cart); //calculate subtotal
+
+    //on increasing or decreasing the qty input field, updates the qty of item in the cart
     cart.updateQty = function(i, qty, product) {
         cartControllerService.updateQty(i, qty, product, cart, function() {
-            cartControllerService.subtotal(cart.subtotalArray, cart);
+            cartControllerService.subtotal(cart.subtotalArray, cart); //re-evaluate subtotal dynamically
         });
-        cartService.cartQty($rootScope);
-    }
-    cart.removeFromCart = function(product) {
-        cartControllerService.removeFromCart(product, cart, function() {
-            cartControllerService.subtotal(cart.subtotalArray, cart);
-        });
-        cartService.cartQty($rootScope);
+        cartService.cartQty($rootScope); //re-call 'cartQty' of cart service to refresh cart content indicator(top right corner);
     }
 
+    //on clicking the 'x' on the cart page, remove the item from the cart
+    cart.removeFromCart = function(product) {
+        cartControllerService.removeFromCart(product, cart, function() {
+            cartControllerService.subtotal(cart.subtotalArray, cart); //re-evaluate subtotal dynamically
+        });
+        cartService.cartQty($rootScope); //re-call 'cartQty' of cart service to refresh cart content indicator(top right corner);
+    }
+
+    //on clicking 'checkout', call 'checkout' function of the 'cartControllerService'
     cart.checkout = function() {
         cartControllerService.checkout(cart, function() {
-            cartControllerService.subtotal(cart.subtotalArray, cart);
+            cartControllerService.subtotal(cart.subtotalArray, cart); //re-evaluate subtotal dynamically
         });
-        cartService.cartQty($rootScope);
+        cartService.cartQty($rootScope); //re-call 'cartQty' of cart service to refresh cart content indicator(top right corner);
     }
 }

@@ -1,3 +1,7 @@
+/*==============================================================
+    top directive, controls scroll to top feature of the app
+================================================================*/
+
 angular.module('app').directive('topDirective', [topDirective]);
 
 function topDirective() {
@@ -5,7 +9,6 @@ function topDirective() {
         restrict: 'E',
         templateUrl: 'app/views/directiveViews/top.html',
         link: function($scope, element, attrs) {
-            
             $(".scrollToTop").click(function() {
                 $("html, body").animate({ scrollTop: 0 }, "slow");
                 return false;

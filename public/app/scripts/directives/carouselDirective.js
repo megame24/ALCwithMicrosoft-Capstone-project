@@ -1,6 +1,6 @@
-/*====================================================
-    carousel directive, carousel feature of the app
-======================================================*/
+/*=========================================================================
+    carousel directive, responsible for the  carousel feature of the app
+===========================================================================*/
 
 angular.module('app').directive('carouselDirective', ['dataService', carousel]);
 

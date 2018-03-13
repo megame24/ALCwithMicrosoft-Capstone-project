@@ -1,5 +1,5 @@
 /*==============================================================
-    top directive, controls scroll to top feature of the app
+    top directive, controls the nav section of the app
 ================================================================*/
 
 angular.module('app').directive('navDirective', ['cartService', nav]);

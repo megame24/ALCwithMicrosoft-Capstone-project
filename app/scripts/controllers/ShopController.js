@@ -1,7 +1,6 @@
 angular.module('app').controller('ShopController', ['$rootScope', 'cartService', 'initService', 'locationService', 'shopControllerService', ShopController]);
 
 function ShopController($rootScope, cartService, initService, locationService, shopControllerService) {
-    var subCatNaira = ['Fruits'];
     var shop = this;
     shop.subcategory;
     shop.subcategoryLength;
@@ -17,10 +16,7 @@ function ShopController($rootScope, cartService, initService, locationService, s
     //re-populates products grid on clicking a subcategory on the shopping page
     shop.updateProducts = function(subcategory) {
         shopControllerService.updateProducts(shop, subcategory);
-        if(!(subCatNaira.includes(shop.products[0].subcategory))) { //if subcategory's items haven't had their prices converted to naira, do so
-            shopControllerService.priceHack(shop);
-            subCatNaira.push(shop.products[0].subcategory);
-        }
+        
         if(shop.checkStatus) { //if 'in stock' checkbox is checked, filter out products not in stock
             shop.inStock();
         }

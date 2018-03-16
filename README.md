@@ -18,4 +18,5 @@ Follow the steps below to build and deploy app.
 
 1. Run `grunt build` to build app.
 2. Change `enviro.devEnv.base` in `server.js` to `enviro.prodEnv.base`.
-3. deploy.
+3. Remove `/dist` from `.gitignore`.
+4. deploy.

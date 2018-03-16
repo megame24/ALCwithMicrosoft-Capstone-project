@@ -45,12 +45,6 @@ function cartService($window) {
     //updates the cart on every relevant action
     function updateQty(qty, value) {
         var array = service.getCart();
-          
-        //   checkAvailability(fruits, 'kela');   // false
-        //   checkAvailability(fruits, 'banana'); // true
-        // function some(elem) {
-        //     return elem['name'] === value['name'];
-        // }
         if($window.localStorage['cart'] != undefined && checkAvailability(array, value)) { //update only if the cart is not empty and item is not already in the cart
             array.forEach(function(element) {
                 if(element['name'] === value['name']) {

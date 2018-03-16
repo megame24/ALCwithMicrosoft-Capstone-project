@@ -32,10 +32,10 @@ function cartControllerService(cartService) {
         for(var i = 0; i < array.length; i++) {
             subtotal += (array[i]['unitPrice'] * array[i]['qty']);
         }
-        cart.subtotal = subtotal.toFixed(0);
-        cart.tax = (cart.subtotal / 10).toFixed(0);
-        if(cart.subtotal == 0) cart.shipping = '0';
-        cart.total = (Number(cart.subtotal) + Number(cart.shipping) + Number(cart.tax)).toFixed(0);
+        cart.subtotal = subtotal.toFixed(2);
+        cart.tax = (cart.subtotal / 10).toFixed(2);
+        if(cart.subtotal == 0) cart.shipping = '0.00';
+        cart.total = (Number(cart.subtotal) + Number(cart.shipping) + Number(cart.tax)).toFixed(2);
     }
 
     //updates qty of items through the cart service's 'updateQty' function
@@ -57,7 +57,7 @@ function cartControllerService(cartService) {
 
     //display a custom message on checkout
     function checkout(cart, cb) {
-        var message = cart.details.name + ' your purchase worth N' + cart.total + ' has been shipped to ' + cart.details.address + ', ' + cart.details.city + '. Thank you for your patronage, we hope to hear from you soon.';
+        var message = cart.details.name + ' your purchase worth $' + cart.total + ' has been shipped to ' + cart.details.address + ', ' + cart.details.city + '. Thank you for your patronage, we hope to hear from you soon.';
         cartService.clearCart(); //clears cart on checkout
         cart.cart = cartService.getCart();
         cart.subtotalArray = [];

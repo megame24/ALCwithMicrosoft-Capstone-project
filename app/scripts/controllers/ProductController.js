@@ -28,7 +28,7 @@ function ProductController($rootScope, cartService, initService, dataService, lo
     //initializes product controller with the needed data through init service and data service
     initService.getData(function(result){
         dataService.product.getProduct(result, product, function() {
-            product.product.price = (product.product.price * 350).toFixed(0); //converts $ to naira
+            product.product.price = product.product.price.toFixed(2);
 
             //controlls rate stars on the product page
             var notRating = 5 - product.product.rating;

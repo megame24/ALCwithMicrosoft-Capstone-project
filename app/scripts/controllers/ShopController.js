@@ -43,7 +43,6 @@ function ShopController($rootScope, cartService, initService, locationService, s
         shop.subcategory = result[3]['subcategories'][0];
         shop.subcategoryLength = result[3]['subcategories'][0]['items'].length;
         shop.products = result[3]['subcategories'][0]['items'];
-        shopControllerService.priceHack(shop); //converts $ to Naira
     });
 
 }

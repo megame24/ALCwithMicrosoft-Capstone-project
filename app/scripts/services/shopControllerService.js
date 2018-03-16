@@ -9,19 +9,11 @@ function shopControllerService(cartService) {
         addToCart: addToCart,
         updateProducts: updateProducts,
         inStock: inStock,
-        sort: sort,
-        priceHack: priceHack,
-        subCatNaira: ['Fruits']
+        sort: sort
     }
 
     return service;
 
-    //converts price from $ to Naira
-    function priceHack(shop) {
-        shop.products.forEach(function(element) {
-            element.price = (element.price * 350).toFixed(0);
-        });
-    }
 
     //takes an object of product details and adds it to cart through cartService
     function addToCart(product) {
@@ -39,10 +31,6 @@ function shopControllerService(cartService) {
         shop.subcategory = subcategory;
         shop.subcategoryLength = subcategory['items'].length;
         shop.products = subcategory['items'];
-        if(!(service.subCatNaira.includes(shop.products[0].subcategory))) { //if subcategory's items haven't had their prices converted to naira, do so
-            service.priceHack(shop);
-            service.subCatNaira.push(shop.products[0].subcategory);
-        }
     }
 
     //filters an array of items in a subcategory by its "in stock" value

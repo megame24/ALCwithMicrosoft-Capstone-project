@@ -886,7 +886,7 @@ figure {
     text-align: center; }
     @media only screen and (min-width: 48em) {
       #shop-section .shop-product {
-        max-height: 246px; } }
+        max-height: 245px; } }
     #shop-section .shop-product:after {
       content: "";
       display: block;

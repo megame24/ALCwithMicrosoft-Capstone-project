@@ -22,12 +22,12 @@
                             </div>
                         </td>
                         <td>{{product['name']}}</td>
-                        <td class="price">&#8358;{{product['unitPrice']}}</td>
+                        <td class="price">${{product['unitPrice']}}</td>
                         <td>
                             <input type="number" ng-init="qty=product['qty']" class="qty" ng-model="qty" ng-change="cart.updateQty($index, qty, product)"
                                 min="1">
                         </td>
-                        <td class="price  phone-table">&#8358;{{(product.unitPrice * qty).toFixed(0)}}</td>
+                        <td class="price  phone-table">${{(product.unitPrice * qty).toFixed(2)}}</td>
                         <td>
                             <i ng-click="cart.removeFromCart(product)" class="fas fa-times-circle delete"></i>
                         </td>
@@ -55,10 +55,10 @@
                 <br/>
                 <input type="text" required="required" placeholder="Phone Number" ng-model="cart.details.phone">
                 <br/>
-                <p>Subtotal: <span class="price">&#8358;{{cart.subtotal}}</span></p>
-                <p>Shipping: <span class="price">&#8358;{{cart.shipping}}</span></p>
-                <p>Tax(10%): <span class="price">&#8358;{{cart.tax}}</span></p>
-                <p >Total: <span class="price">&#8358;{{cart.total}}</span></p>
+                <p>Subtotal: <span class="price">${{cart.subtotal}}</span></p>
+                <p>Shipping: <span class="price">${{cart.shipping}}</span></p>
+                <p>Tax(10%): <span class="price">${{cart.tax}}</span></p>
+                <p >Total: <span class="price">${{cart.total}}</span></p>
                 <input class="btn right" type="submit" ng-disabled="cart.total == 0" value="Checkout">
             </form>
         </div>

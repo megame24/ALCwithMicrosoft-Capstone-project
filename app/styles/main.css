@@ -989,7 +989,7 @@ figure {
     height: 100%; }
   #about-section .hero-image, #about-section .hero-image2 {
     /* The image used */
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../../resources/images/img1.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../../images/img1.jpg");
     /* Set a specific height */
     min-height: 450px;
     /* Position and center the image to scale nicely on all screens */
@@ -998,7 +998,7 @@ figure {
     background-size: cover;
     position: relative; }
   #about-section .hero-image2 {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../../resources/images/img6.jpeg");
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../../images/img6.jpeg");
     background-attachment: fixed;
     background-size: cover; }
   #about-section .hero-text {

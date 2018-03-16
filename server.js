@@ -5,12 +5,13 @@ var port = process.env.PORT || 8080;
 
 app.use(morgan('dev'));
 
-app.use(express.static('public'));
-app.use('/bower_components', express.static('public/bower_components'));
-app.use('/resources', express.static('public/app/resources'));
+app.use(express.static('dist'));
+app.use('/bower_components', express.static('bower_components'));
+app.use('/images', express.static('app/images'));
+app.use('/app', express.static('app'));
 
 app.get('*', function(req, res) {
-    res.sendFile(__dirname + '/public/index.html');
+    res.sendFile(__dirname + '/dist/index.html');
 });
 
 app.listen(port, function() {

@@ -1,5 +1,5 @@
 /*==============================================================
-    top directive, controls the nav section of the app
+    nav directive, controls the nav section of the app
 ================================================================*/
 
 angular.module('app').directive('navDirective', ['cartService', nav]);
@@ -11,17 +11,17 @@ function nav(cartService) {
         link: function($scope, element, attrs) {
             //adds active class to the current path/link
             function linkActive() {
-                if(window.location.pathname == `/`) {
+                if(window.location.pathname == '/') {
                     $('.home').addClass('active');
                     $('#cart').removeClass('active');
                     $('#shopping').removeClass('active');
                     $('.container').removeClass('shop-container');
-                } else if(window.location.pathname == `/cart`) {
+                } else if(window.location.pathname == '/cart') {
                     $('.home').removeClass('active');
                     $('#cart').addClass('active');
                     $('#shopping').removeClass('active');
                     $('.container').addClass('shop-container');
-                } else if(window.location.pathname == `/shopping`) {
+                } else if(window.location.pathname == '/shopping') {
                     $('.home').removeClass('active');
                     $('#cart').removeClass('active');
                     $('#shopping').addClass('active');

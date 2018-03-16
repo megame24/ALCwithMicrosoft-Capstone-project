@@ -31,11 +31,11 @@ function carousel(dataService) {
 
                     //first set its opacity to zero, displace it a greater degree to the left and make it vissible
                     //then animate it to the initial position of the present image while setting its opacity to one
-                    $(slideObject.array[nextImage]).css({'opacity': '0', 'left': `${slideObject.sign2}${slideObject.nextCss}`})
+                    $(slideObject.array[nextImage]).css({'opacity': '0', 'left': slideObject.sign2 + slideObject.nextCss})
                     .addClass('vissible')
                     .animate({
                         opacity: 1,
-                        left: (`${slideObject.sign1}=${slideObject.nextLeft}`)
+                        left: (slideObject.sign1 + '=' + slideObject.nextLeft)
                     }, 500);
                 }, 20)
             }

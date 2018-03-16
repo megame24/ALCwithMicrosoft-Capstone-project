@@ -57,7 +57,7 @@ function cartControllerService(cartService) {
 
     //display a custom message on checkout
     function checkout(cart, cb) {
-        var message = `${cart.details.name} your purchase worth N${cart.total} has been shipped to ${cart.details.address}, ${cart.details.city}. Thank you for your patronage, we hope to hear from you soon.`
+        var message = cart.details.name + ' your purchase worth N' + cart.total + ' has been shipped to ' + cart.details.address + ', ' + cart.details.city + '. Thank you for your patronage, we hope to hear from you soon.';
         cartService.clearCart(); //clears cart on checkout
         cart.cart = cartService.getCart();
         cart.subtotalArray = [];

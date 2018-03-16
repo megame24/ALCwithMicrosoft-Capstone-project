@@ -1,0 +1,6 @@
+{
+    "name": "alc-capstone-project",
+    "description": "An online grocery shop app built with Node.js, express, AngularJs and jQuery. With main focus on front-end ",
+    "repository": "https://github.com/megame24/ALCwithMicrosoft-Capstone-project.git",
+    "keywords": ["node", "express", "angularjs"]
+}

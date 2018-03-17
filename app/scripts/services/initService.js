@@ -6,7 +6,7 @@ angular.module('app').factory('initService', ['dataService', initService]);
 
 function initService(dataService) {
     var service = {
-        getData: getData
+        getData: getData,
     }
 
     return service;

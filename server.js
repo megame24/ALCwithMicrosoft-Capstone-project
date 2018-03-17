@@ -3,7 +3,7 @@ var app = express();
 var morgan = require('morgan');
 var port = process.env.PORT || 8080;
 var enviro = require('./environments');
-var base = enviro.devEnv.base;
+var base = enviro.prodEnv.base;
 
 app.use(morgan('dev'));
 

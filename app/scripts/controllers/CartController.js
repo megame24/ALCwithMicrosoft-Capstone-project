@@ -1,6 +1,6 @@
-angular.module('app').controller('CartController', ['$rootScope', 'cartService', 'cartControllerService', CartController]);
+angular.module('app').controller('CartController', ['cartService', 'cartControllerService', CartController]);
 
-function CartController($rootScope, cartService, cartControllerService) {
+function CartController(cartService, cartControllerService) {
     var cart = this;
     cart.subtotal;
     cart.shipping = '10.00'; //shipping cost

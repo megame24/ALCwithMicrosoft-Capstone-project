@@ -36,6 +36,7 @@ function cartService($window) {
         }
     }
 
+    //check to see if a value is contained in an array
     function checkAvailability(arr, val) {
         return arr.some(function(arrVal) {
           return val['name'] === arrVal['name'];
@@ -45,7 +46,7 @@ function cartService($window) {
     //updates the cart on every relevant action
     function updateQty(qty, value) {
         var array = service.getCart();
-        if($window.localStorage['cart'] != undefined && checkAvailability(array, value)) { //update only if the cart is not empty and item is not already in the cart
+        if($window.localStorage['cart'] != undefined && checkAvailability(array, value)) { //update only if the cart is not empty and item is contained in the cart
             array.forEach(function(element) {
                 if(element['name'] === value['name']) {
                     element['qty'] = qty;
@@ -84,16 +85,12 @@ function cartService($window) {
     //adds an item to the cart
     function addToCart(value) {
         var array = service.getCart();
-        if($window.localStorage['cart'] != undefined && !(checkAvailability(array, value))) { //if cart is not empty and item is not already in the cart, add it to the cart
+        if(!(checkAvailability(array, value))) { //if item is not already in the cart, add it to the cart
             array.push(value);
             array = JSON.stringify(array);
             $window.localStorage['cart'] = array;
-        } else if(checkAvailability(array, value)) { //else if the item is already in cart, return and terminate the function
+        } else { //else if the item is already in cart, return and terminate the function
             return;
-        } else { //else if the item is new, add it to cart
-            array.push(value);
-            array = JSON.stringify(array);
-            $window.localStorage['cart'] = array;
         }
     }
 }

@@ -13,6 +13,4 @@ function shopStateService() {
         shop.subcategoryLength = service.subcategory['items'].length;
         shop.products = service.subcategory['items'];
     }
-
-    // service.num = 0;
 }

@@ -12,25 +12,16 @@ function CartController($rootScope, cartService, cartControllerService) {
 
     //on increasing or decreasing the qty input field, updates the qty of item in the cart
     cart.updateQty = function(i, qty, product) {
-        cartControllerService.updateQty(i, qty, product, cart, function() {
-            cartControllerService.subtotal(cart.subtotalArray, cart); //re-evaluate subtotal dynamically
-        });
-        cartService.cartQty($rootScope); //re-call 'cartQty' of cart service to refresh cart content indicator(top right corner);
+        cartControllerService.updateQty(i, qty, product, cart);
     }
 
     //on clicking the 'x' on the cart page, remove the item from the cart
     cart.removeFromCart = function(product) {
-        cartControllerService.removeFromCart(product, cart, function() {
-            cartControllerService.subtotal(cart.subtotalArray, cart); //re-evaluate subtotal dynamically
-        });
-        cartService.cartQty($rootScope); //re-call 'cartQty' of cart service to refresh cart content indicator(top right corner);
+        cartControllerService.removeFromCart(product, cart);
     }
 
     //on clicking 'checkout', call 'checkout' function of the 'cartControllerService'
     cart.checkout = function() {
-        cartControllerService.checkout(cart, function() {
-            cartControllerService.subtotal(cart.subtotalArray, cart); //re-evaluate subtotal dynamically
-        });
-        cartService.cartQty($rootScope); //re-call 'cartQty' of cart service to refresh cart content indicator(top right corner);
+        cartControllerService.checkout(cart);
     }
 }

@@ -25,11 +25,11 @@
 
                     <div class="md-col-6">
                         <div id="stock-sort">
-                            <span><input type="checkbox" ng-init='checkStatus=false' ng-model='shop.checkStatus' ng-click='shop.inStock(shop.checkStatus)'> In stock Only</span>
+                            <span><input type="checkbox" ng-checked='shop.checkStatus' ng-model='shop.checkStatus' ng-click='shop.inStock(shop.checkStatus)'> In stock Only</span>
                             &nbsp;&nbsp;
                             <span>
                                 <label>Sort by:</label>
-                                <select ng-model="myValue" ng-change="shop.sort(myValue)">
+                                <select ng-model="shop.myValue" ng-change="shop.sort(shop.myValue)">
                                     <option value="">None</option>
                                     <option value="alphabetical">Alphabetical</option>
                                     <option value="price">Price</option>

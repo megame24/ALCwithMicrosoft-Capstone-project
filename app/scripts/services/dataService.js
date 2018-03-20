@@ -25,6 +25,7 @@ function dataService($http, $q) {
             return result[num1]['subcategories'][num2]['items'][num3]
         }
 
+        //generate arbitrary data to populate the carousel
         array.push(product(0, 0, 0));
         array.push(product(0, 0, 1));
         array.push(product(3, 0, 16));

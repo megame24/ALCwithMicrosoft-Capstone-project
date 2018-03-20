@@ -35,7 +35,7 @@ function shopControllerService(cartService) {
 
     //filters an array of items in a subcategory by its "in stock" value
     function inStock(shop, bool) {
-        if(bool === false) {
+        if(!bool) {
             shop.products = shop.subcategory['items'];  
           } else {
               shop.products = shop.products.filter(function(product) {
